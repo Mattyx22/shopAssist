@@ -1,0 +1,30 @@
+extends layout
+block content
+  if user
+    h1 Nowy klient
+      a.glyphicon.glyphicon-info-sign(href='#', data-toggle='modal', data-target='#infoAddClient')
+    include includes/modals.pug
+    form(method='POST', action='/clients/add')
+      .form-group
+        label Imię i nazwisko:
+        input.form-control.centerInput(name='name', type='text')
+      .form-group
+        label Adres:
+        input.form-control.centerInput(name='address', type='text')
+      .form-group
+        label Kod pocztowy:
+        input.form-control.centerInput(name='post_code', type='text')
+      .form-group
+        label Numer telefonu:
+        input.form-control.centerInput(name='phone_number', type='number')
+      .form-group
+        label E-mail (nie wymagane):
+        input.form-control.centerInput(name='email', type='text')
+      .form-group
+        label Stały rabat (nie wymagane):
+        input.form-control.centerInput(name='const_discount', type='number', step='0.01')
+      input.btn.btn.primary(type='submit', value='Zatwierdź')
+  else
+    h1 Musisz się zalogować, aby to zobaczyć
+      
+      

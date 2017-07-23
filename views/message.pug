@@ -1,0 +1,7 @@
+.messages
+  each type in Object.keys(messages)
+    each message in messages[type]
+      div(class='alert alert-'+type) #{message}
+      script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+      script.
+        $('.alert-success').delay(600).fadeOut('slow');

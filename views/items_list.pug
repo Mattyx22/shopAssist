@@ -1,0 +1,32 @@
+extends layout
+block content
+  if user
+    table.table-bordered.table-striped#list_of_items
+      thead
+        tr
+          th Lp.
+          th Nazwa:
+          th Ilość:
+          th Cena netto:
+          th Podatek
+          th Cena brutto:
+          th Prowizja:
+          th Zysk:
+          th Opcje:
+      tbody#fbody
+          each item, i in items
+            tr
+              td= i+1 + '.' 
+              td= item.name 
+              td= item.quantity
+              td= item.price_netto
+              td= item.tax
+              td= item.price_brutto
+              td= item.commission
+              td= item.profit
+              td
+                a.glyphicon.glyphicon-shopping-cart(href='/items/add-to-cart/'+item._id)
+                a.glyphicon.glyphicon-pencil(href='/items/edit/'+item._id)
+                a.glyphicon.glyphicon-remove.del_item(href='#', data-id=item._id)
+  else
+    h1 Musisz być zalogowany, aby to zobaczyć.

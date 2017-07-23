@@ -1,0 +1,24 @@
+extends layout
+block content
+    if items
+        table.table.table-hover
+            thead
+                tr
+                    th Nazwa:
+                    th Ilość:
+                    th Cena (brutto):
+            tbody
+                each item, i in items
+                    tr
+                        td= item.item.name
+                        td= item.qty
+                        td= item.price
+        span Ilość razem:
+            span= session.cart.totalQty
+        br
+        span Cena końcowa:
+            span= session.cart.totalPrice
+    else
+        .row
+            .col-sm-6.col-md-6.col-md-offset-3.col-sm-offset-3
+                h2 No items in cart

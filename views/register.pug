@@ -1,0 +1,27 @@
+extends layout
+block content
+  if user
+    h1 Jesteś już zalogowany
+  else
+    h1 Rejestracja
+    form(method='POST', action='/users/register')
+      #form-group
+        label Imię i nazwisko:
+        input.form-control.centerInput(name='name', type='text')
+      #form-group
+        label E-mail:
+        input.form-control.centerInput(name='email', type='text')
+      #form-group
+        label Nazwa użytkownika:
+        input.form-control.centerInput(name='username', type='text')
+      #form-group
+        label Hasło:
+        input.form-control.centerInput(name='password', type='password')
+      #form-group
+        label Powtórz hasło:
+        input.form-control.centerInput(name='password2', type='password')
+      #form-group
+        label Kod rejestracyjny:
+        input.form-control.centerInput(name='reg_code', type='password')
+      br
+      input.btn.btn-primary(type='submit', value='Submit')

@@ -1,0 +1,27 @@
+extends layout
+block content
+  if user
+    table.table-bordered.table-striped#list_of_items
+      thead
+        tr
+          th Lp.
+          th Nazwa:
+          th Adres:
+          th Kod pocztowy:
+          th Numer tel.:
+          th E-mail:
+          th Stała zniżka:
+          th Opcje:
+      tbody
+        each client, i in clients
+          tr
+            td= i+1 + '.'
+            td= client.name
+            td= client.address
+            td= client.post_code
+            td= client.phone_number
+            td= client.email
+            td= client.const_discount
+            td
+              a.glyphicon.glyphicon-pencil(href='/clients/edit/'+client._id)
+              a.glyphicon.glyphicon-remove.del_item(href='#', data-id=client._id)

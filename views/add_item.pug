@@ -1,0 +1,38 @@
+extends layout
+block content
+  if user
+    h1 #{title}
+      a.glyphicon.glyphicon-info-sign(href='#', data-toggle='modal', data-target='#infoAddItem')
+    include includes/modals.pug
+    form(method='POST', action='/items/add')
+      .form-group
+        label Nazwa:
+        input.form-control.centerInput(name='name', type='text')
+      .form-group
+        label Ilość:
+        input.form-control.centerInput(name='quantity', type='number')
+      .form-group
+        label Cena zakupu (od producenta):
+        input.form-control.centerInput(name='bought_price', type='number', step='0.01', id='bought_price')
+      .form-group
+        label Prowizja (dla sklepu):
+        input.form-control.centerInput(name='commission', type='number', step='0.01', id='commission')
+      .form-group
+        label Podatek:
+        input.form-control.centerInput(name='tax', type='number', id='tax', value='23')
+      hr
+      .form-group
+        label Zysk:
+        input.form-control.centerInput(name='profit', type='number', step='0.01', id='profit', readonly='readonly')
+      .form-group
+        label Cena netto:
+        input.form-control.centerInput(name='price_netto', type='number', step='0.01', id='price_netto', readonly='readonly')
+      .form-group
+        label Cena brutto: 
+        input.form-control.centerInput(name='price_brutto', type='number', step='0.01', id='price_brutto', readonly='readonly') 
+      input.btn.btn.primary(type='submit', value='Zatwierdź')
+      button.btn.btn-success(type='button' id='recount_value') Przelicz
+  else
+    h1 Musisz być zalogowany, aby to zobaczyć.
+      
+      

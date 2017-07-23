@@ -1,0 +1,34 @@
+extends layout
+block content
+  if user
+    h1 Edytuj: #{item.name}
+    form(method='POST', action='/items/edit/'+item._id)
+      .form-group
+        label Nazwa:
+        input.form-control.centerInput(name='name', type='text', value=item.name)
+      .form-group
+        label Ilość:
+        input.form-control.centerInput(name='quantity', type='number', value=item.quantity)
+      .form-group
+        label Cena zakupu (od producenta):
+        input.form-control.centerInput(name='bought_price', type='number', step='0.01', id='bought_price', value=item.bought_price)
+      .form-group
+        label Prowizja (dla sklepu):
+        input.form-control.centerInput(name='commission', type='number', step='0.01', id='commission', value=item.commission)
+      .form-group
+        label Podatek:
+        input.form-control.centerInput(name='tax', type='number', id='tax', value=item.tax)
+      hr
+      .form-group
+        label Zysk:
+        input.form-control.centerInput(name='profit', type='number', step='0.01', id='profit', readonly='readonly', value=item.profit)
+      .form-group
+        label Cena netto:
+        input.form-control.centerInput(name='price_netto', type='number', step='0.01', id='price_netto', readonly='readonly', value=item.price_netto)
+      .form-group
+        label Cena brutto: 
+        input.form-control.centerInput(name='price_brutto', type='number', step='0.01', id='price_brutto', readonly='readonly', value=item.price_brutto) 
+      input.btn.btn.primary(type='submit', value='Zatwierdź')
+      button.btn.btn-success(type='button' id='recount_value') Przelicz
+  else
+    h1 Musisz być zalogowany, aby to zobaczyć

@@ -1,0 +1,16 @@
+extends layout
+block content
+  if user
+    h1 Tutaj będą najważniejsze informacje
+    h3 Wykresy itd. :))))))))))))))
+  else
+    h1 ShopAssist
+    form(method='POST', action='/users/login')
+      #form-group
+        label Username:
+        input.form-control.centerInput(name='username', type='text')
+      #form-group
+        label Password:
+        input.form-control.centerInput(name='password', type='password')
+      br
+      input.btn.btn-primary(type='submit', value='Submit')  

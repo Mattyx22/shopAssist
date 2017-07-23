@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    title Shop Assistant
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    if user
+      #menu.navbar.navbar-default.navbar-fixed-top(role='navigation')
+        .container-fluid
+          .navbar-header
+            a.navbar-brand(href='/') Shop Assist
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-menubuilder')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          .collapse.navbar-collapse.navbar-menu
+            ul.nav.navbar-nav.navbar-left
+              li
+                a(href='/') Główna
+              li.dropdown
+                a(href='#', class='dropdown-toggle', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Lista
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/items/list') przedmiotów
+                  li
+                    a(href='/clients/list') klientów
+              li.dropdown
+                a(href='#', class='dropdown-toggle', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Dodaj
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/items/add') przedmiot
+                  li
+                    a(href='/clients/add') klienta
+              li
+                a(href='/items/shopping-cart') Koszyk 
+              li.dropdown
+                a(href='#', class='dropdown-toggle', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Profil
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/users/profile/' + user._id) Ustawienia
+                  li
+                    a(href='/users/logout') Wyloguj
+    .container-fluid.content
+      != messages('message', locals)
+      if errors
+        each error, i in errors
+          div(class='alert alert-danger') #{error.msg}
+      block content
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='/js/jquery.dataTables.min.js')
+    script(src='/js/main.js')

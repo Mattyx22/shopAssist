@@ -1,0 +1,41 @@
+#infoAddItem.modal.fade(tabindex='-1', role='dialog', aria-labelledby='infoAddItem', aria-hidden='true')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+          h4#myModalLabel.modal-title Jak dodać nowy przedmiot?
+        .modal-body
+          h4 Nazwa - może być dowolna
+          h4 Ilość - oznacza aktualny stan na magazynie (max. 9999)
+          h4 Cena zakupu - oznacza cenę, po której zakupiliśmy produkt np. od producenta
+          h4 Prowizja - jest to nasz zarobek na danym produkcie (od sztuki). Podawane w procentach (max. 100)
+          h4 Cena netto - jest to koszt po dodaniu prowizji
+          h4 Podatek - jest to podatek np. VAT, podawany w procentach (max. 100)
+          h4 Zysk - kwota jaką zarobimy na sztuce produktu
+          h4 Cena brutto - końcowa cena jaką będzie musiał zapłacić konsument
+          h4 Maksymalnie możliwe jest zapisanie setnych cześci danej liczny np. 0.01
+          h4
+            strong Przed zatwierdzeniem przedmiotu należy kliknąć przycisk "Przelicz"
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Zamknij
+
+#infoAddClient.modal.fade(tabindex='-1', role='dialog', aria-labelledby='infoAddItem', aria-hidden='true')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+          h4#myModalLabel.modal-title Jak dodać nowego klienta?
+        .modal-body
+          h4 Nazwa - może być dowolna
+          h4 Ilość - oznacza aktualny stan na magazynie (max. 9999)
+          h4 Cena zakupu - oznacza cenę, po której zakupiliśmy produkt np. od producenta
+          h4 Prowizja - jest to nasz zarobek na danym produkcie (od sztuki). Podawane w procentach (max. 100)
+          h4 Cena netto - jest to koszt po dodaniu prowizji
+          h4 Podatek - jest to podatek np. VAT, podawany w procentach (max. 100)
+          h4 Zysk - kwota jaką zarobimy na sztuce produktu
+          h4 Cena brutto - końcowa cena jaką będzie musiał zapłacić konsument
+          h4 Maksymalnie możliwe jest zapisanie setnych cześci danej liczny np. 0.01
+          h4
+            strong Przed zatwierdzeniem przedmiotu należy kliknąć przycisk "Przelicz"
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Zamknij
